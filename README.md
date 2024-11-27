@@ -15,8 +15,50 @@
 ## Links
 
 - **Front-End Deployment** : [Front-End Website](https://note-it-fe.vercel.app/)
-- **Back-End Deployment** : [Back-End Website](https://note-it-be1.vercel.app/)
-- **Full Deployment** : [Coming Soon](https://)
+- **Back-End Deployment** : [Back-End Website](https://note-it-be-zeta.vercel.app)
 - **Figma Design** : [Figma Desain](https://www.figma.com/design/OWsAwdikljTOvgVEnQZD3Q/Desain-PAW?node-id=0-1&t=8VVIs1HcwGmWD9yh-1)
 - **Video Presentation** : [Coming Soon](https://)
 - **PPT Presentation** : [PPT Note-IT](https://www.canva.com/design/DAGXj9EXjcU/shzw9hqgetAHDpnpd7I5Ig/edit?utm_content=DAGXj9EXjcU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+# Development Setup
+
+## Prerequisites  
+Pastikan perangkat Anda memiliki prasyarat berikut:  
+- **Node.js** versi 16.15 atau lebih tinggi  
+- **npm** versi 7 atau lebih tinggi  
+
+## Menjalankan Repository  
+
+### Back-End  
+1. Clone repository Back-End
+   ```bash  
+   git clone https://github.com/BrandonRafaelLovelyno/NoteIT-be
+   cd NoteIT-be
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Konfigurasi Environment : 
+Ada file `.env` yang harus dibuat.
+
+```env
+MONGO_URI=
+
+GOOGLE_CLIENT_ID=
+JWT_SECRET_KEY=
+
+PORT=5000
+```
+**Sesuaikan dengan key yang telah anda punya**
+
+5. Untuk menjalankan aplikasi di development mode:
+  ```bash
+   npm run dev
+```
+> Server akan berjalan pada port:5000
+
+```arduino
+http://localhost:5000  
+```
