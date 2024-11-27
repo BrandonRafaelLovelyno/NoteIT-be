@@ -86,8 +86,9 @@ exports.login = async (req, res) => {
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "lax",
     secure: true,
+    domain:
+      process.env.NODE_ENV === "development" ? ".localhost" : ".domain.com",
   });
 
   // Password is correct, login successful
@@ -149,8 +150,9 @@ exports.googleCallback = async (req, res) => {
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "lax",
     secure: true,
+    domain:
+      process.env.NODE_ENV === "development" ? ".localhost" : ".domain.com",
   });
 
   // Password is correct, login successful
