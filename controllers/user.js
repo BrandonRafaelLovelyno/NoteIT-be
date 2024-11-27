@@ -2,6 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs"); // For password hashing
 const jwt = require("jsonwebtoken");
 const { google } = require("googleapis");
+const { path } = require("../app");
 
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
@@ -86,7 +87,8 @@ exports.login = async (req, res) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "none",
-    domain: "vercel.app",
+    path: "/",
+    maxAge: 24 * 60 * 60 * 1000,
   });
 
   // Password is correct, login successful
@@ -149,7 +151,8 @@ exports.googleCallback = async (req, res) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "none",
-    domain: "vercel.app",
+    path: "/",
+    maxAge: 24 * 60 * 60 * 1000,
   });
 
   // Password is correct, login successful
