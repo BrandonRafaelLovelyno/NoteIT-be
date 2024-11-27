@@ -85,7 +85,8 @@ exports.login = async (req, res) => {
     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
+    domain: "vercel.app",
   });
 
   // Password is correct, login successful
@@ -147,7 +148,8 @@ exports.googleCallback = async (req, res) => {
     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
+    domain: "vercel.app",
   });
 
   // Password is correct, login successful
