@@ -83,13 +83,11 @@ exports.login = async (req, res) => {
 
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY);
   res.cookie("jwt", token, {
-    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
-    domain: process.env.BASE_URL,
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
   });
 
   // Password is correct, login successful
@@ -148,13 +146,11 @@ exports.googleCallback = async (req, res) => {
 
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY);
   res.cookie("jwt", token, {
-    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
-    domain: process.env.BASE_URL,
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
   });
 
   // Password is correct, login successful
