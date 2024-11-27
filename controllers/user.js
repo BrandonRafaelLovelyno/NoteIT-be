@@ -86,7 +86,7 @@ exports.login = async (req, res) => {
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "none",
+    sameSite: "lax",
     secure: true,
   });
 
@@ -149,7 +149,7 @@ exports.googleCallback = async (req, res) => {
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "none",
+    sameSite: "lax",
     secure: true,
   });
 
