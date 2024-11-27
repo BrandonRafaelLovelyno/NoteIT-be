@@ -86,7 +86,7 @@ exports.login = async (req, res) => {
     "Set-Cookie",
     `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
       24 * 60 * 60
-    }; SameSite=Strict`
+    }; SameSite=Lax`
   );
 
   // Password is correct, login successful
@@ -148,7 +148,7 @@ exports.googleCallback = async (req, res) => {
     "Set-Cookie",
     `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
       24 * 60 * 60
-    }; SameSite=Strict`
+    }; SameSite=Lax`
   );
 
   // Password is correct, login successful
