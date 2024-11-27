@@ -89,6 +89,7 @@ exports.login = async (req, res) => {
     sameSite: "none",
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
+    domain: process.env.BASE_URL,
   });
 
   // Password is correct, login successful
@@ -153,6 +154,7 @@ exports.googleCallback = async (req, res) => {
     sameSite: "none",
     path: "/",
     maxAge: 24 * 60 * 60 * 1000,
+    domain: process.env.BASE_URL,
   });
 
   // Password is correct, login successful
