@@ -26,7 +26,7 @@ exports.logOut = async (req, res) => {
     path: "/", // Same path as the cookie
     httpOnly: true, // Same settings as when you set it
     secure: process.env.NODE_ENV !== "development", // Same secure settings
-    sameSite: "lax", // Same SameSite settings
+    sameSite: "none", // Same SameSite settings
   });
   return res.status(200).send("Cookie cleared");
 };
@@ -96,7 +96,7 @@ exports.login = async (req, res) => {
     "Set-Cookie",
     `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
       24 * 60 * 60
-    }; SameSite=Lax`
+    }; SameSite=none`
   );
 
   // Password is correct, login successful
@@ -158,7 +158,7 @@ exports.googleCallback = async (req, res) => {
     "Set-Cookie",
     `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
       24 * 60 * 60
-    }; SameSite=Lax`
+    }; SameSite=none`
   );
 
   // Password is correct, login successful
