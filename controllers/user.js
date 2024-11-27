@@ -82,14 +82,12 @@ exports.login = async (req, res) => {
   }
 
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY);
-  res.cookie("jwt", token, {
-    path: "/",
-    maxAge: 24 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: true,
-    domain:
-      process.env.NODE_ENV === "development" ? ".localhost" : ".domain.com",
-  });
+  res.setHeader(
+    "Set-Cookie",
+    `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
+      24 * 60 * 60
+    }; SameSite=Strict`
+  );
 
   // Password is correct, login successful
   res.status(200).json({
@@ -146,14 +144,12 @@ exports.googleCallback = async (req, res) => {
   }
 
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY);
-  res.cookie("jwt", token, {
-    path: "/",
-    maxAge: 24 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: true,
-    domain:
-      process.env.NODE_ENV === "development" ? ".localhost" : ".domain.com",
-  });
+  res.setHeader(
+    "Set-Cookie",
+    `jwt=${token}; Path=/; HttpOnly; Secure; Max-Age=${
+      24 * 60 * 60
+    }; SameSite=Strict`
+  );
 
   // Password is correct, login successful
   res.status(200).json({
