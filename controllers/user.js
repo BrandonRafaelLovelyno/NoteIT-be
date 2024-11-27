@@ -144,7 +144,7 @@ exports.googleCallback = async (req, res) => {
 
       return res.status(200).json({
         status: "success",
-        message: "Login successful",
+        message: "User Created",
         data: {
           userId: user._id,
           email: user.email,
