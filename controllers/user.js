@@ -21,6 +21,16 @@ const authorizationUrl = oauth2Client.generateAuthUrl({
   include_granted_scopes: true,
 });
 
+exports.logOut = async (req, res) => {
+  res.clearCookie("jwt", {
+    path: "/", // Same path as the cookie
+    httpOnly: true, // Same settings as when you set it
+    secure: process.env.NODE_ENV !== "development", // Same secure settings
+    sameSite: "lax", // Same SameSite settings
+  });
+  return res.status(200).send("Cookie cleared");
+};
+
 exports.createUser = async (req, res) => {
   const { email, password } = req.body;
 
