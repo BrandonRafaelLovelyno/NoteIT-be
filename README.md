@@ -47,6 +47,7 @@ Ada file `.env` yang harus dibuat.
 MONGO_URI=
 
 GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 JWT_SECRET_KEY=
 
 PORT=5000
